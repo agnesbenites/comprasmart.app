@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CompraSmart - Planos para Lojistas</title>
+    <title>CompraSmart - Revolucione suas Compras Presenciais</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -22,14 +22,13 @@
             --light: #f8f9fa;
             --dark: #212529;
             --gray: #6c757d;
-            --gradient: linear-gradient(135deg, #4361ee 0%, #3a0ca3 100%);
         }
 
         body {
             font-family: 'Inter', sans-serif;
-            background: #f5f7ff;
             color: var(--dark);
             line-height: 1.6;
+            scroll-behavior: smooth;
         }
 
         .container {
@@ -39,468 +38,670 @@
         }
 
         section {
-            padding: 80px 0;
+            padding: 100px 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            transition: all 0.8s ease;
+        }
+
+        /* Navegação Fixa Melhorada */
+        .nav-fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 15px 0;
+            box-shadow: 0 2px 30px rgba(0,0,0,0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .nav-link {
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.4s ease;
+            border: 3px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.5s;
+        }
+
+        .nav-link:hover::before {
+            left: 100%;
+        }
+
+        .nav-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-right: 40px;
+        }
+
+        /* Seção CLIENTES - Gradiente Azul/Violeta */
+        .client-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .client-section .nav-link {
+            background: linear-gradient(135deg, #4ade80, #3a0ca3);
+            color: white;
+            border-color: rgba(255,255,255,0.3);
+        }
+
+        .client-section .nav-link:hover {
+            background: white;
+            color: #667eea;
+            border-color: white;
+        }
+
+        /* Seção CONSULTORES - Gradiente Laranja/Dourado */
+        .consultant-section {
+            background: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%);
+            color: #2d3436;
+        }
+
+        .consultant-section .nav-link {
+            background: linear-gradient(135deg, #ff9ff3, #feca57);
+            color: #2d3436;
+            border-color: rgba(255,255,255,0.3);
+        }
+
+        .consultant-section .nav-link:hover {
+            background: white;
+            color: #ff6b6b;
+            border-color: white;
+        }
+
+        /* Seção LOJISTAS - Gradiente Verde/Amarelo Suave */
+        .merchant-section {
+            background: linear-gradient(135deg, #a8e6cf 0%, #dcedc1 50%, #ffd3b6 100%);
+            color: #2d3436;
+        }
+
+        .merchant-section .nav-link {
+            background: linear-gradient(135deg, #a8e6cf, #ffd3b6);
+            color: #2d3436;
+            border-color: rgba(255,255,255,0.3);
+        }
+
+        .merchant-section .nav-link:hover {
+            background: white;
+            color: #a8e6cf;
+            border-color: white;
+        }
+
+        .content-wrapper {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .section-icon {
+            font-size: 5rem;
+            margin-bottom: 2rem;
+            display: block;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2));
         }
 
         .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: var(--secondary);
-            position: relative;
-        }
-
-        .section-title:after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 4px;
-            background: var(--gradient);
-            margin: 15px auto;
-            border-radius: 2px;
+            font-size: 3.8rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
 
         .section-subtitle {
-            text-align: center;
-            font-size: 1.2rem;
-            color: var(--gray);
-            margin-bottom: 4rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            font-size: 1.4rem;
+            margin-bottom: 3rem;
+            opacity: 0.95;
+            font-weight: 400;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
         }
 
-        /* Cards de Planos */
-        .pricing-grid {
+        .benefits-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-bottom: 4rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin: 4rem 0;
         }
 
-        .pricing-card {
-            background: white;
-            border-radius: 15px;
-            padding: 2.5rem;
-            text-align: center;
-            transition: all 0.3s ease;
+        .benefit-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            padding: 3rem 2rem;
+            border-radius: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.4s ease;
             position: relative;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            border: 1px solid #e9ecef;
+            overflow: hidden;
         }
 
-        .pricing-card.basic {
-            border-top: 5px solid var(--accent);
-        }
-
-        .pricing-card.premium {
-            border-top: 5px solid var(--primary);
-            transform: scale(1.05);
-            box-shadow: 0 15px 40px rgba(67, 97, 238, 0.15);
-        }
-
-        .pricing-card.enterprise {
-            border-top: 5px solid var(--success);
-        }
-
-        .pricing-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
-
-        .pricing-card.premium:hover {
-            transform: scale(1.05) translateY(-10px);
-        }
-
-        .plan-badge {
+        .benefit-card::before {
+            content: '';
             position: absolute;
-            top: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--primary);
-            color: white;
-            padding: 0.5rem 1.5rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #4ade80, #4361ee, #ff6b6b);
         }
 
-        .pricing-card.basic .plan-badge {
-            background: var(--accent);
+        .benefit-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            background: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
         }
 
-        .pricing-card.premium .plan-badge {
-            background: var(--primary);
+        .benefit-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            display: block;
+            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3));
         }
 
-        .pricing-card.enterprise .plan-badge {
-            background: var(--success);
-        }
-
-        .plan-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: var(--primary);
-        }
-
-        .pricing-card h3 {
-            font-size: 1.5rem;
-            color: var(--secondary);
-            margin-bottom: 1rem;
-        }
-
-        .price {
-            font-size: 2.5rem;
+        .benefit-title {
+            font-size: 1.6rem;
             font-weight: 700;
-            color: #333;
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
         }
 
-        .price span {
-            font-size: 1rem;
-            color: #666;
-        }
-
-        .price-note {
-            font-size: 0.9rem;
-            color: var(--gray);
-            margin-bottom: 2rem;
-        }
-
-        .plan-features {
-            text-align: left;
-            margin: 2rem 0;
-        }
-
-        .feature-item {
-            display: flex;
-            align-items: center;
-            padding: 0.8rem 0;
-            border-bottom: 1px solid #f0f0f0;
-        }
-
-        .feature-item:last-child {
-            border-bottom: none;
-        }
-
-        .feature-icon {
-            width: 24px;
-            height: 24px;
-            background: var(--success);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 1rem;
-            flex-shrink: 0;
-        }
-
-        .feature-icon i {
-            color: white;
-            font-size: 0.8rem;
-        }
-
-        .feature-text {
-            flex: 1;
-            font-size: 0.95rem;
-        }
-
-        .feature-limit {
-            font-weight: 600;
-            color: var(--primary);
-        }
-
-        .feature-note {
-            font-size: 0.8rem;
-            color: var(--gray);
-            margin-top: 0.2rem;
+        .benefit-description {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            line-height: 1.6;
         }
 
         .cta-button {
-            display: block;
-            width: 100%;
-            padding: 15px;
-            background: var(--gradient);
-            color: white;
+            display: inline-block;
+            padding: 20px 45px;
+            background: rgba(255, 255, 255, 0.2);
+            color: inherit;
             text-decoration: none;
-            border-radius: 10px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: all 0.4s ease;
+            border: 3px solid rgba(255, 255, 255, 0.4);
+            margin-top: 2rem;
+            position: relative;
+            overflow: hidden;
             cursor: pointer;
-            margin-top: 1.5rem;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.6s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
         }
 
         .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(67, 97, 238, 0.3);
+            background: white;
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
         }
 
-        .pricing-card.premium .cta-button {
-            background: var(--primary);
+        .client-section .cta-button:hover {
+            color: #667eea;
         }
 
-        /* Limitações */
-        .limitations {
-            margin-top: 2rem;
-            padding: 1.5rem;
-            background: #f8f9fa;
-            border-radius: 10px;
-            border-left: 4px solid var(--warning);
+        .consultant-section .cta-button:hover {
+            color: #ff6b6b;
         }
 
-        .limitations h4 {
-            color: var(--warning);
+        .merchant-section .cta-button:hover {
+            color: #a8e6cf;
+        }
+
+        /* Seção Odoo ERP */
+        .odoo-section {
+            background: linear-gradient(135deg, #7149c6 0%, #3a0ca3 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .odoo-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .odoo-logo {
+            font-size: 4rem;
+            margin-bottom: 2rem;
+            display: block;
+        }
+
+        .odoo-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+        }
+
+        .odoo-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+        }
+
+        .odoo-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .odoo-feature {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .odoo-feature i {
+            font-size: 2.5rem;
             margin-bottom: 1rem;
-            font-size: 1rem;
+            display: block;
+            color: #4ade80;
         }
 
-        .limitation-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 0.5rem;
-            font-size: 0.9rem;
-            color: var(--gray);
+        /* Animações */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        .limitation-item i {
-            color: var(--warning);
-            margin-right: 0.5rem;
-            font-size: 0.8rem;
+        .animate-fade-in {
+            animation: fadeInUp 0.8s ease-out;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .pricing-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .pricing-card.premium {
-                transform: none;
-            }
-            
-            .pricing-card.premium:hover {
-                transform: translateY(-10px);
-            }
-            
             .section-title {
-                font-size: 2rem;
+                font-size: 2.8rem;
+            }
+            
+            .section-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .logo {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+            
+            section {
+                padding: 80px 0;
+            }
+            
+            .nav-link {
+                padding: 12px 25px;
+                font-size: 1rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Seção de Planos -->
-    <section class="pricing">
+    <!-- Navegação Fixa Melhorada -->
+    <nav class="nav-fixed">
+        <div class="container nav-container">
+            <div class="logo">🚀 CompraSmart</div>
+            <a href="#clientes" class="nav-link">
+                <i class="fas fa-users"></i> Clientes
+            </a>
+            <a href="#consultores" class="nav-link">
+                <i class="fas fa-search"></i> Consultores
+            </a>
+            <a href="#lojistas" class="nav-link">
+                <i class="fas fa-store"></i> Lojistas
+            </a>
+        </div>
+    </nav>
+
+    <!-- Seção CLIENTES -->
+    <section id="clientes" class="client-section">
         <div class="container">
-            <h2 class="section-title">📊 Planos para Lojistas</h2>
-            <p class="section-subtitle">Escolha o plano ideal para o tamanho do seu negócio. Todos incluem suporte e atualizações gratuitas.</p>
-            
-            <div class="pricing-grid">
-                <!-- Plano Básico -->
-                <div class="pricing-card basic">
-                    <div class="plan-badge">Básico</div>
-                    <div class="plan-icon">🏪</div>
-                    <h3>Plano Básico</h3>
-                    <div class="price">R$ 99,90<span>/mês</span></div>
-                    <p class="price-note">Ideal para pequenos negócios</p>
+            <div class="content-wrapper animate-fade-in">
+                <span class="section-icon">👥</span>
+                <h1 class="section-title">Veja a revolução que é comprar presencial</h1>
+                <p class="section-subtitle">Descubra produtos perfeitos com a ajuda de especialistas, sem sair de casa</p>
+                
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <span class="benefit-icon">🎯</span>
+                        <h3 class="benefit-title">Consultoria Especializada</h3>
+                        <p class="benefit-description">Converse com consultores que realmente entendem do produto que você precisa</p>
+                    </div>
                     
-                    <div class="plan-features">
-                        <div class="feature-item">
-                            <div class="feature-icon"><i class="fas fa-check"></i></div>
-                            <div class="feature-text">
-                                <span class="feature-limit">1 Loja + 2 Filiais</span>
-                                <div class="feature-note">Cadastro de estabelecimentos</div>
-                            </div>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon"><i class="fas fa-check"></i></div>
-                            <div class="feature-text">
-                                <span class="feature-limit">Até 5 Vendedores</span>
-                                <div class="feature-note">Equipe comercial</div>
-                            </div>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon"><i class="fas fa-check"></i></div>
-                            <div class="feature-text">
-                                <span class="feature-limit">3 Consultores</span>
-                                <div class="feature-note">Acesso à plataforma</div>
-                            </div>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon"><i class="fas fa-check"></i></div>
-                            <div class="feature-text">Relatórios Básicos</div>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon"><i class="fas fa-check"></i></div>
-                            <div class="feature-text">5 Campanhas/Mês</div>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon"><i class="fas fa-check"></i></div>
-                            <div class="feature-text">Suporte por Email</div>
-                        </div>
+                    <div class="benefit-card">
+                        <span class="benefit-icon">💰</span>
+                        <h3 class="benefit-title">Melhores Preços</h3>
+                        <p class="benefit-description">Acesso a promoções exclusivas e preços especiais negociados pelos consultores</p>
                     </div>
-
-                    <div class="limitations">
-                        <h4>⚠️ Limitações do Plano</h4>
-                        <div class="limitation-item">
-                            <i class="fas fa-info-circle"></i>
-                            Máximo de 100 produtos cadastrados
-                        </div>
-                        <div class="limitation-item">
-                            <i class="fas fa-info-circle"></i>
-                            Relatórios básicos apenas
-                        </div>
-                        <div class="limitation-item">
-                            <i class="fas fa-info-circle"></i>
-                            Sem integração com ERP
-                        </div>
+                    
+                    <div class="benefit-card">
+                        <span class="benefit-icon">🚀</span>
+                        <h3 class="benefit-title">Compra Rápida</h3>
+                        <p class="benefit-description">Chegue na loja com tudo escolhido - é só pagar e levar</p>
                     </div>
-
-                    <button class="cta-button" onclick="alert('Redirecionando para assinatura do Plano Básico')">
-                        🚀 Assinar Plano Básico
-                    </button>
+                    
+                    <div class="benefit-card">
+                        <span class="benefit-icon">🛡️</span>
+                        <h3 class="benefit-title">Compra Segura</h3>
+                        <p class="benefit-description">Produtos verificados e recomendados por especialistas de confiança</p>
+                    </div>
                 </div>
 
-                <!-- Plano Premium -->
-                <div class="pricing-card premium">
-                    <div class="plan-badge">Mais Popular</div>
-                    <div class="plan-icon">🚀</div>
-                    <h3>Plano Premium</h3>
-                    <div class="price">R$ 299,90<span>/mês</span></div>
-                    <p class="price-note">Perfeito para negócios em crescimento</p>
-                    
-                    <div class="plan-features">
-                        <div class="feature-item">
-                            <div class="feature-icon"><i class="fas fa-check"></i></div>
-                            <div class="feature-text">
-                                <span class="feature-limit">Lojas Ilimitadas</span>
-                                <div class="feature-note">Cadastro completo</div>
-                            </div>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon"><i class="fas fa-check"></i></div>
-                            <div class="feature-text">
-                                <span class="feature-limit">Até 20 Vendedores</span>
-                                <div class="feature-note">Equipe expandida</div>
-                            </div>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon"><i class="fas fa-check"></i></div>
-                            <div class="feature-text">
-                                <span class="feature-limit">10 Consultores</span>
-                                <div class="feature-note">Acesso ampliado</div>
-                            </div>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon"><i class="fas fa-check"></i></div>
-                            <div class="feature-text">Relatórios Avançados</div>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon"><i class="fas fa-check"></i></div>
-                            <div class="feature-text">Campanhas Ilimitadas</div>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon"><i class="fas fa-check"></i></div>
-                            <div class="feature-text">Suporte Prioritário</div>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon"><i class="fas fa-check"></i></div>
-                            <div class="feature-text">API de Integração</div>
-                        </div>
-                    </div>
-
-                    <button class="cta-button" onclick="alert('Redirecionando para assinatura do Plano Premium')">
-                        🎯 Escolher Plano Premium
-                    </button>
-                </div>
-
-                <!-- Plano Empresarial -->
-                <div class="pricing-card enterprise">
-                    <div class="plan-badge">Empresarial</div>
-                    <div class="plan-icon">🏢</div>
-                    <h3>Plano Empresarial</h3>
-                    <div class="price">R$ 599,90<span>/mês</span></div>
-                    <p class="price-note">Solução completa para grandes empresas</p>
-                    
-                    <div class="plan-features">
-                        <div class="feature-item">
-                            <div class="feature-icon"><i class="fas fa-check"></i></div>
-                            <div class="feature-text">
-                                <span class="feature-limit">Lojas Ilimitadas</span>
-                                <div class="feature-note">Multi-filiais</div>
-                            </div>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon"><i class="fas fa-check"></i></div>
-                            <div class="feature-text">
-                                <span class="feature-limit">Vendedores Ilimitados</span>
-                                <div class="feature-note">Equipe sem restrições</div>
-                            </div>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon"><i class="fas fa-check"></i></div>
-                            <div class="feature-text">
-                                <span class="feature-limit">Consultores Ilimitados</span>
-                                <div class="feature-note">Acesso total</div>
-                            </div>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon"><i class="fas fa-check"></i></div>
-                            <div class="feature-text">Dashboard Personalizado</div>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon"><i class="fas fa-check"></i></div>
-                            <div class="feature-text">Analytics em Tempo Real</div>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon"><i class="fas fa-check"></i></div>
-                            <div class="feature-text">Suporte Dedicado 24/7</div>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon"><i class="fas fa-check"></i></div>
-                            <div class="feature-text">Integração Completa</div>
-                        </div>
-                        <div class="feature-item">
-                            <div class="feature-icon"><i class="fas fa-check"></i></div>
-                            <div class="feature-text">ERP Odoo Integrado</div>
-                        </div>
-                    </div>
-
-                    <button class="cta-button" onclick="alert('Redirecionando para assinatura do Plano Empresarial')">
-                        💼 Contratar Plano Empresarial
-                    </button>
-                </div>
-            </div>
-
-            <!-- Observações -->
-            <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: #f8f9fa; border-radius: 10px;">
-                <h3 style="color: var(--secondary); margin-bottom: 1rem;">🔒 Condicionantes por Plano</h3>
-                <p style="color: var(--gray); max-width: 800px; margin: 0 auto;">
-                    <strong>Cada plano tem suas próprias limitações e recursos.</strong> O sistema automaticamente aplica as restrições 
-                    de acordo com o plano contratado. Você pode fazer upgrade a qualquer momento conforme seu negócio cresce!
-                </p>
+                <button class="cta-button" onclick="window.location.href='https://seu-app-react.com/login'">
+                    <i class="fas fa-arrow-right"></i> Quero ser atendido por um especialista
+                </button>
             </div>
         </div>
     </section>
 
-    <script>
-        // Simulação de redirecionamento para checkout
-        function redirectToCheckout(plano) {
-            alert(`Redirecionando para o checkout seguro do ${plano}...\n\nEm produção, isso abriria o Stripe Checkout.`);
-            // window.location.href = `/checkout?plano=${plano}`;
-        }
+    <!-- Seção CONSULTORES -->
+    <section id="consultores" class="consultant-section">
+        <div class="container">
+            <div class="content-wrapper animate-fade-in">
+                <span class="section-icon">🔍</span>
+                <h1 class="section-title">Venda o que você é especializado</h1>
+                <p class="section-subtitle">Sabe sobre ferramentas? Móveis? Presentes? Ganhe dinheiro vendendo produtos assim</p>
+                
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <span class="benefit-icon">💸</span>
+                        <h3 class="benefit-title">Comissões Diretas</h3>
+                        <p class="benefit-description">Receba suas comissões automaticamente na sua conta todo mês</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <span class="benefit-icon">🏠</span>
+                        <h3 class="benefit-title">Trabalhe de Qualquer Lugar</h3>
+                        <p class="benefit-description">Atenda clientes de onde estiver, no seu próprio horário</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <span class="benefit-icon">📈</span>
+                        <h3 class="benefit-title">Crescimento Ilimitado</h3>
+                        <p class="benefit-description">Atenda quantos clientes quiser e aumente sua renda</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <span class="benefit-icon">🆓</span>
+                        <h3 class="benefit-title">Plataforma Gratuita</h3>
+                        <p class="benefit-description">Zero custos para consultores - você só ganha comissões</p>
+                    </div>
+                </div>
 
-        // Atribuir eventos aos botões
-        document.querySelectorAll('.cta-button').forEach(button => {
-            button.addEventListener('click', function() {
-                const card = this.closest('.pricing-card');
-                const planName = card.querySelector('h3').textContent;
-                redirectToCheckout(planName);
+                <button class="cta-button" onclick="window.location.href='https://seu-app-react.com/login'">
+                    <i class="fas fa-arrow-right"></i> Quero me tornar um consultor
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção LOJISTAS -->
+    <section id="lojistas" class="merchant-section">
+        <div class="container">
+            <div class="content-wrapper animate-fade-in">
+                <span class="section-icon">🏪</span>
+                <h1 class="section-title">Receba os clientes que realmente querem o que você tem</h1>
+                <p class="section-subtitle">Clientes pré-qualificados chegam até você prontos para comprar</p>
+                
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <span class="benefit-icon">🎯</span>
+                        <h3 class="benefit-title">Clientes Qualificados</h3>
+                        <p class="benefit-description">Pessoas que já sabem o que querem, orientadas por consultores especializados</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <span class="benefit-icon">📊</span>
+                        <h3 class="benefit-title">Vendas Previsíveis</h3>
+                        <p class="benefit-description">Saiba antecipadamente o que vai vender e prepare seu estoque</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <span class="benefit-icon">🔧</span>
+                        <h3 class="benefit-title">Integração com ERP</h3>
+                        <p class="benefit-description">Conecte com Odoo e outros sistemas para gestão completa</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <span class="benefit-icon">💼</span>
+                        <h3 class="benefit-title">Equipe de Consultores</h3>
+                        <p class="benefit-description">Tenha especialistas vendendo para você sem custo fixo</p>
+                    </div>
+                </div>
+
+                <!-- Planos para Lojistas -->
+                <div style="margin-top: 4rem; padding: 3rem; background: rgba(255,255,255,0.2); border-radius: 25px; backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3);">
+                    <h2 style="font-size: 2.5rem; margin-bottom: 2rem; font-weight: 800;">📊 Planos que cabem no seu negócio</h2>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                        <!-- Plano Básico -->
+                        <div style="background: rgba(255,255,255,0.9); padding: 2.5rem; border-radius: 20px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                            <h3 style="color: #4361ee; margin-bottom: 1rem; font-size: 1.5rem;">🏪 Básico</h3>
+                            <div style="font-size: 2.5rem; font-weight: bold; color: #333;">R$ 99,90<span style="font-size: 1rem; color: #666;">/mês</span></div>
+                            <ul style="text-align: left; margin: 2rem 0; color: #555; list-style: none;">
+                                <li style="margin-bottom: 0.8rem;">✅ 1 Loja + 2 Filiais</li>
+                                <li style="margin-bottom: 0.8rem;">✅ Até 5 Vendedores</li>
+                                <li style="margin-bottom: 0.8rem;">✅ 3 Consultores</li>
+                                <li style="margin-bottom: 0.8rem;">✅ Relatórios Básicos</li>
+                            </ul>
+                            <button style="background: #4361ee; color: white; border: none; padding: 15px 35px; border-radius: 25px; font-weight: 600; cursor: pointer; font-size: 1.1rem; transition: all 0.3s ease;" onclick="window.location.href='https://seu-app-react.com/lojista/escolha'">
+                                Começar Agora
+                            </button>
+                        </div>
+
+                        <!-- Plano Premium -->
+                        <div style="background: rgba(255,255,255,0.95); padding: 2.5rem; border-radius: 20px; text-align: center; box-shadow: 0 15px 40px rgba(0,0,0,0.2); transform: scale(1.05); border: 3px solid #4361ee; position: relative;">
+                            <div style="background: #4361ee; color: white; padding: 8px 20px; border-radius: 20px; font-size: 0.9rem; font-weight: bold; display: inline-block; margin-bottom: 1rem; position: absolute; top: -15px; left: 50%; transform: translateX(-50%);">
+                                🏆 MAIS POPULAR
+                            </div>
+                            <h3 style="color: #4361ee; margin-bottom: 1rem; font-size: 1.5rem;">🚀 Premium</h3>
+                            <div style="font-size: 2.5rem; font-weight: bold; color: #333;">R$ 299,90<span style="font-size: 1rem; color: #666;">/mês</span></div>
+                            <ul style="text-align: left; margin: 2rem 0; color: #555; list-style: none;">
+                                <li style="margin-bottom: 0.8rem;">✅ Lojas Ilimitadas</li>
+                                <li style="margin-bottom: 0.8rem;">✅ Até 20 Vendedores</li>
+                                <li style="margin-bottom: 0.8rem;">✅ 10 Consultores</li>
+                                <li style="margin-bottom: 0.8rem;">✅ API de Integração</li>
+                                <li style="margin-bottom: 0.8rem;">✅ Suporte Prioritário</li>
+                            </ul>
+                            <button style="background: #4361ee; color: white; border: none; padding: 15px 35px; border-radius: 25px; font-weight: 600; cursor: pointer; font-size: 1.1rem; transition: all 0.3s ease;" onclick="window.location.href='https://seu-app-react.com/lojista/escolha'">
+                                Escolher Premium
+                            </button>
+                        </div>
+
+                        <!-- Plano Empresarial -->
+                        <div style="background: rgba(255,255,255,0.9); padding: 2.5rem; border-radius: 20px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                            <h3 style="color: #4361ee; margin-bottom: 1rem; font-size: 1.5rem;">🏢 Empresarial</h3>
+                            <div style="font-size: 2.5rem; font-weight: bold; color: #333;">R$ 599,90<span style="font-size: 1rem; color: #666;">/mês</span></div>
+                            <ul style="text-align: left; margin: 2rem 0; color: #555; list-style: none;">
+                                <li style="margin-bottom: 0.8rem;">✅ Tudo Ilimitado</li>
+                                <li style="margin-bottom: 0.8rem;">✅ ERP Odoo Integrado</li>
+                                <li style="margin-bottom: 0.8rem;">✅ Analytics em Tempo Real</li>
+                                <li style="margin-bottom: 0.8rem;">✅ Suporte Dedicado 24/7</li>
+                                <li style="margin-bottom: 0.8rem;">✅ Dashboard Personalizado</li>
+                            </ul>
+                            <button style="background: #4361ee; color: white; border: none; padding: 15px 35px; border-radius: 25px; font-weight: 600; cursor: pointer; font-size: 1.1rem; transition: all 0.3s ease;" onclick="window.location.href='https://seu-app-react.com/lojista/escolha'">
+                                Falar com Vendas
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="cta-button" onclick="window.location.href='https://seu-app-react.com/lojista/escolha'" style="margin-top: 3rem;">
+                    <i class="fas fa-arrow-right"></i> Quero cadastrar minha loja
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Odoo ERP -->
+    <section id="odoo" class="odoo-section">
+        <div class="odoo-container animate-fade-in">
+            <span class="odoo-logo">⚙️</span>
+            <h2 class="odoo-title">Em breve: Odoo ERP Integrado</h2>
+            <p class="odoo-subtitle">Gestão completa do seu negócio em uma única plataforma</p>
+            
+            <div class="odoo-features">
+                <div class="odoo-feature">
+                    <i class="fas fa-cubes"></i>
+                    <h3>Vendas & CRM</h3>
+                    <p>Gerencie leads, oportunidades e feche mais vendas</p>
+                </div>
+                <div class="odoo-feature">
+                    <i class="fas fa-warehouse"></i>
+                    <h3>Estoque</h3>
+                    <p>Controle completo de inventário em tempo real</p>
+                </div>
+                <div class="odoo-feature">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    <h3>Financeiro</h3>
+                    <p>Contas a pagar/receber, fluxo de caixa e relatórios</p>
+                </div>
+                <div class="odoo-feature">
+                    <i class="fas fa-shopping-cart"></i>
+                    <h3>e-Commerce</h3>
+                    <p>Loja virtual integrada com gestão de pedidos</p>
+                </div>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 20px; margin-top: 2rem;">
+                <h3 style="margin-bottom: 1rem; font-size: 1.5rem;">🚀 Por que Odoo?</h3>
+                <p style="font-size: 1.1rem; opacity: 0.9;">
+                    O Odoo é o ERP mais popular do mundo, usado por mais de 7 milhões de empresas. 
+                    Em breve, ofereceremos integração nativa para você ter gestão completa do seu negócio.
+                </p>
+            </div>
+
+            <button class="cta-button" onclick="window.location.href='https://seu-app-react.com/lojista/escolha'" style="margin-top: 3rem; background: rgba(255,255,255,0.2); color: white;">
+                <i class="fas fa-arrow-right"></i> Quero saber mais
+            </button>
+        </div>
+    </section>
+
+    <script>
+        // Atualizar navegação ativa com efeitos
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - sectionHeight / 3)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
             });
         });
+
+        // 🔥 ATUALIZE ESTAS URLs COM SUAS URLs REAIS
+        function getAppURL() {
+            // Substitua pela URL do seu app React em produção
+            return 'https://seu-app-react.com';
+        }
+
+        // Configurar URLs dinamicamente
+        document.addEventListener('DOMContentLoaded', function() {
+            const appURL = getAppURL();
+            
+            // Configurar todos os botões
+            document.querySelectorAll('.cta-button').forEach(button => {
+                const originalOnClick = button.getAttribute('onclick');
+                if (originalOnClick && originalOnClick.includes('seu-app-react.com')) {
+                    button.setAttribute('onclick', originalOnClick.replace('https://seu-app-react.com', appURL));
+                }
+            });
+        });
+
+        // Adicionar classe active ao CSS
+        const style = document.createElement('style');
+        style.textContent = `
+            .nav-link.active {
+                background: white !important;
+                transform: translateY(-3px);
+                box-shadow: 0 10px 25px rgba(0,0,0,0.2) !important;
+                border-color: white !important;
+            }
+            .client-section .nav-link.active { color: #667eea !important; }
+            .consultant-section .nav-link.active { color: #ff6b6b !important; }
+            .merchant-section .nav-link.active { color: #a8e6cf !important; }
+            
+            /* Efeito de brilho nos botões */
+            button:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 8px 20px rgba(67, 97, 238, 0.3);
+            }
+        `;
+        document.head.appendChild(style);
     </script>
 </body>
 </html>
