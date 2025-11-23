@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CompraSmart - Revolucione as vendas da sua loja física com QR Codes Inteligentes</title>
+    <title>CompraSmart - Planos para Lojistas</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Reset e configurações globais */
         * {
             margin: 0;
             padding: 0;
@@ -19,18 +18,18 @@
             --secondary: #3a0ca3;
             --accent: #4cc9f0;
             --success: #4ade80;
+            --warning: #f59e0b;
             --light: #f8f9fa;
             --dark: #212529;
             --gray: #6c757d;
             --gradient: linear-gradient(135deg, #4361ee 0%, #3a0ca3 100%);
-            --gradient-accent: linear-gradient(45deg, #ff6b6b, #ffd700);
         }
 
         body {
             font-family: 'Inter', sans-serif;
+            background: #f5f7ff;
+            color: var(--dark);
             line-height: 1.6;
-            color: #333;
-            background: #ffffff;
         }
 
         .container {
@@ -46,7 +45,6 @@
         .section-title {
             text-align: center;
             font-size: 2.5rem;
-            font-weight: 700;
             margin-bottom: 3rem;
             color: var(--secondary);
             position: relative;
@@ -62,253 +60,20 @@
             border-radius: 2px;
         }
 
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: none;
-            font-size: 1rem;
-        }
-
-        .btn-primary {
-            background: var(--gradient);
-            color: white;
-            box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(67, 97, 238, 0.4);
-        }
-
-        .btn-accent {
-            background: var(--gradient-accent);
-            color: white;
-            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
-        }
-
-        .btn-accent:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(255, 107, 107, 0.4);
-        }
-
-        /* Header */
-        header {
-            background: white;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--primary);
-            display: flex;
-            align-items: center;
-        }
-
-        .logo i {
-            margin-right: 10px;
-            color: var(--accent);
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-
-        .nav-links li {
-            margin-left: 30px;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--dark);
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        .auth-buttons {
-            display: flex;
-            gap: 15px;
-        }
-
-        .mobile-menu {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        /* Hero Section */
-        .hero {
-            padding-top: 150px;
-            background: linear-gradient(135deg, #f5f7ff 0%, #e6e9ff 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .hero-text {
-            flex: 1;
-            padding-right: 40px;
-        }
-
-        .hero-image {
-            flex: 1;
+        .section-subtitle {
             text-align: center;
-        }
-
-        .hero-title {
-            font-size: 3.2rem;
-            margin-bottom: 20px;
-            color: var(--secondary);
-            line-height: 1.2;
-        }
-
-        .highlight {
-            background: var(--gradient-accent);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero-subtitle {
             font-size: 1.2rem;
-            margin-bottom: 30px;
             color: var(--gray);
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .hero-buttons {
-            display: flex;
-            gap: 15px;
-        }
-
-        .hero-image img {
-            max-width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-            100% { transform: translateY(0px); }
-        }
-
-        /* Stats */
-        .stats {
-            display: flex;
-            justify-content: center;
-            gap: 4rem;
-            margin-top: 4rem;
-            flex-wrap: wrap;
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: var(--primary);
-        }
-
-        .stat-label {
-            opacity: 0.8;
-            font-size: 1rem;
-            color: var(--gray);
-        }
-
-        /* Benefits Section */
-        .benefits {
-            padding: 80px 0;
-            background: #f8f9fa;
-        }
-
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .benefit-card {
-            background: white;
-            padding: 3rem 2rem;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .benefit-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .benefit-icon {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .benefit-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--secondary);
-        }
-
-        .benefit-card ul {
-            list-style: none;
-            text-align: left;
-        }
-
-        .benefit-card li {
-            padding: 0.5rem 0;
-            position: relative;
-            padding-left: 1.5rem;
-        }
-
-        .benefit-card li:before {
-            content: "✓";
-            color: var(--success);
-            position: absolute;
-            left: 0;
-            font-weight: bold;
-        }
-
-        /* Seção de Planos */
-        .pricing {
-            background: white;
-        }
-
+        /* Cards de Planos */
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
             margin-bottom: 4rem;
         }
@@ -324,18 +89,18 @@
             border: 1px solid #e9ecef;
         }
 
-        .pricing-card.free {
-            border-top: 5px solid var(--success);
-        }
-
-        .pricing-card.seller {
+        .pricing-card.basic {
             border-top: 5px solid var(--accent);
         }
 
-        .pricing-card.featured {
+        .pricing-card.premium {
             border-top: 5px solid var(--primary);
             transform: scale(1.05);
             box-shadow: 0 15px 40px rgba(67, 97, 238, 0.15);
+        }
+
+        .pricing-card.enterprise {
+            border-top: 5px solid var(--success);
         }
 
         .pricing-card:hover {
@@ -343,12 +108,34 @@
             box-shadow: 0 20px 40px rgba(0,0,0,0.1);
         }
 
-        .pricing-card.featured:hover {
+        .pricing-card.premium:hover {
             transform: scale(1.05) translateY(-10px);
         }
 
-        .pricing-header {
-            margin-bottom: 2rem;
+        .plan-badge {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .pricing-card.basic .plan-badge {
+            background: var(--accent);
+        }
+
+        .pricing-card.premium .plan-badge {
+            background: var(--primary);
+        }
+
+        .pricing-card.enterprise .plan-badge {
+            background: var(--success);
         }
 
         .plan-icon {
@@ -367,7 +154,7 @@
             font-size: 2.5rem;
             font-weight: 700;
             color: #333;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
         }
 
         .price span {
@@ -375,692 +162,344 @@
             color: #666;
         }
 
-        .plan-badge {
-            display: inline-block;
-            background: var(--primary);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
+        .price-note {
             font-size: 0.9rem;
-            font-weight: 600;
-        }
-
-        .pricing-card.free .plan-badge {
-            background: var(--success);
-        }
-
-        .pricing-features {
-            text-align: left;
+            color: var(--gray);
             margin-bottom: 2rem;
         }
 
-        .pricing-features ul {
-            list-style: none;
-        }
-
-        .pricing-features li {
-            padding: 0.5rem 0;
-            position: relative;
-            padding-left: 1.5rem;
-        }
-
-        .pricing-features li:before {
-            content: "✓";
-            color: var(--success);
-            position: absolute;
-            left: 0;
-            font-weight: bold;
-        }
-
-        .pricing-cta {
-            margin-top: 2rem;
-        }
-
-        /* Vantagens dos Consultores */
-        .consultor-benefits {
-            background: var(--gradient);
-            color: white;
-            padding: 4rem 2rem;
-            border-radius: 15px;
-            text-align: center;
-        }
-
-        .consultor-benefits h3 {
-            font-size: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .benefits-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .benefit-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
+        .plan-features {
             text-align: left;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 1.5rem;
-            border-radius: 10px;
-            backdrop-filter: blur(10px);
+            margin: 2rem 0;
         }
 
-        .benefit-icon {
-            font-size: 2.5rem;
+        .feature-item {
+            display: flex;
+            align-items: center;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .feature-item:last-child {
+            border-bottom: none;
+        }
+
+        .feature-icon {
+            width: 24px;
+            height: 24px;
+            background: var(--success);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
             flex-shrink: 0;
         }
 
-        .benefit-content h4 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
+        .feature-icon i {
+            color: white;
+            font-size: 0.8rem;
         }
 
-        .benefit-content p {
-            opacity: 0.9;
-            line-height: 1.5;
+        .feature-text {
+            flex: 1;
+            font-size: 0.95rem;
         }
 
-        /* How It Works */
-        .how-it-works {
-            padding: 80px 0;
-            background: #f8f9fa;
+        .feature-limit {
+            font-weight: 600;
+            color: var(--primary);
         }
 
-        .steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+        .feature-note {
+            font-size: 0.8rem;
+            color: var(--gray);
+            margin-top: 0.2rem;
         }
 
-        .step {
-            text-align: center;
-            padding: 2rem;
-        }
-
-        .step-number {
-            width: 60px;
-            height: 60px;
+        .cta-button {
+            display: block;
+            width: 100%;
+            padding: 15px;
             background: var(--gradient);
             color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin: 0 auto 1.5rem;
-        }
-
-        .step-content h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            color: var(--secondary);
-        }
-
-        /* Final CTA */
-        .final-cta {
-            background: var(--gradient);
-            color: white;
-            padding: 80px 0;
-            text-align: center;
-        }
-
-        .final-cta h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .final-cta p {
-            font-size: 1.2rem;
-            margin-bottom: 3rem;
-            opacity: 0.9;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--dark);
-            color: white;
-            padding: 60px 0 30px;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-column h3 {
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
-            position: relative;
-            padding-bottom: 10px;
-        }
-
-        .footer-column h3:after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 40px;
-            height: 2px;
-            background: var(--accent);
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-
-        .footer-links a {
-            color: #adb5bd;
             text-decoration: none;
-            transition: color 0.3s;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            margin-top: 1.5rem;
         }
 
-        .footer-links a:hover {
-            color: white;
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(67, 97, 238, 0.3);
         }
 
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
+        .pricing-card.premium .cta-button {
+            background: var(--primary);
         }
 
-        .social-links a {
+        /* Limitações */
+        .limitations {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid var(--warning);
+        }
+
+        .limitations h4 {
+            color: var(--warning);
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .limitation-item {
             display: flex;
             align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            color: white;
-            transition: all 0.3s;
-        }
-
-        .social-links a:hover {
-            background: var(--primary);
-            transform: translateY(-3px);
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #adb5bd;
+            margin-bottom: 0.5rem;
             font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        .limitation-item i {
+            color: var(--warning);
+            margin-right: 0.5rem;
+            font-size: 0.8rem;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .hero-content {
-                flex-direction: column;
-            }
-
-            .hero-text {
-                padding-right: 0;
-                margin-bottom: 40px;
-                text-align: center;
-            }
-
-            .hero-buttons {
-                justify-content: center;
-            }
-
             .pricing-grid {
                 grid-template-columns: 1fr;
             }
-
-            .pricing-card.featured {
+            
+            .pricing-card.premium {
                 transform: none;
             }
-
-            .pricing-card.featured:hover {
+            
+            .pricing-card.premium:hover {
                 transform: translateY(-10px);
             }
-
-            .benefit-item {
-                text-align: center;
-                flex-direction: column;
-            }
-
-            .nav-links, .auth-buttons {
-                display: none;
-            }
-
-            .mobile-menu {
-                display: block;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .hero-title {
-                font-size: 2.5rem;
-            }
-
-            .stats {
-                gap: 2rem;
-            }
             
-            .stat-number {
+            .section-title {
                 font-size: 2rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <nav>
-                <div class="logo">
-                    <i class="fas fa-smartphone"></i>
-                    CompraSmart
-                </div>
-                <ul class="nav-links">
-                    <li><a href="#home">Início</a></li>
-                    <li><a href="#beneficios">Benefícios</a></li>
-                    <li><a href="#planos">Planos</a></li>
-                    <li><a href="#como-funciona">Como Funciona</a></li>
-                    <li><a href="#contato">Contato</a></li>
-                </ul>
-                <div class="auth-buttons">
-                    <a href="https://suacomprasmart.com.br/login" class="btn btn-outline">Login</a>
-                    <a href="https://suacomprasmart.com.br/cadastro" class="btn btn-primary">Cadastrar</a>
-                </div>
-                <div class="mobile-menu">
-                    <i class="fas fa-bars"></i>
-                </div>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1 class="hero-title">
-                        Revolucione suas vendas com 
-                        <span class="highlight">QR Codes Inteligentes</span>
-                    </h1>
-                    <p class="hero-subtitle">
-                        A única plataforma que conecta Clientes com Lojas Físicas e seus Vendedores ou Consultores cadastrados em um ecossistema completo de vendas.
-                    </p>
-                    
-                    <div class="hero-buttons">
-                        <a href="https://suacomprasmart.com.br/cadastro" class="btn btn-accent">
-                            <i class="fas fa-rocket"></i> Começar Agora
-                        </a>
-                        <a href="#planos" class="btn btn-outline">Ver Planos</a>
-                    </div>
-
-                    <!-- Estatísticas -->
-                    <div class="stats">
-                        <div class="stat-item">
-                            <div class="stat-number">+500</div>
-                            <div class="stat-label">Consultores</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">+50%</div>
-                            <div class="stat-label">Aumento nas Vendas</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">100%</div>
-                            <div class="stat-label">Controle Total</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="hero-image">
-                    <!-- Imagem ilustrativa - você pode substituir por uma imagem real -->
-                    <div style="width: 100%; height: 400px; background: var(--gradient); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem;">
-                        <i class="fas fa-qrcode" style="font-size: 8rem; opacity: 0.7;"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Benefícios -->
-    <section class="benefits" id="beneficios">
-        <div class="container">
-            <h2 class="section-title">Tudo que você precisa em uma plataforma</h2>
-            
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <div class="benefit-icon">🏪</div>
-                    <h3>Para Lojistas</h3>
-                    <ul>
-                        <li>Gestão de múltiplas filiais</li>
-                        <li>Controle de vendedores</li>
-                        <li>Relatórios em tempo real</li>
-                        <li>Sistema de comissões</li>
-                    </ul>
-                </div>
-
-                <div class="benefit-card">
-                    <div class="benefit-icon">🔍</div>
-                    <h3>Para Consultores</h3>
-                    <ul>
-                        <li>Independência total</li>
-                        <li>Múltiplos clientes</li>
-                        <li>Analytics avançado</li>
-                        <li>Gestão completa</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Seção de Planos -->
-    <section class="pricing" id="planos">
+    <section class="pricing">
         <div class="container">
-            <h2 class="section-title">Planos que cabem no seu negócio</h2>
+            <h2 class="section-title">📊 Planos para Lojistas</h2>
+            <p class="section-subtitle">Escolha o plano ideal para o tamanho do seu negócio. Todos incluem suporte e atualizações gratuitas.</p>
             
             <div class="pricing-grid">
-                <!-- Plano CONSULTOR (GRATUITO) -->
-                <div class="pricing-card free">
-                    <div class="pricing-header">
-                        <div class="plan-icon"><i class="fas fa-user-tie"></i></div>
-                        <h3>Consultor</h3>
-                        <div class="price">R$ 0<span>/mês</span></div>
-                        <div class="plan-badge">100% Gratuito</div>
-                    </div>
-                    <div class="pricing-features">
-                        <ul>
-                            <li>Trabalhe de casa ou qualquer lugar</li>
-                            <li>Receba comissões diretamente na sua conta</li>
-                            <li>Atendimento a múltiplos clientes</li>
-                            <li>Dashboard completo de analytics</li>
-                            <li>Relatórios de performance</li>
-                            <li>Suporte por email</li>
-                            <li>Sem limite de tempo de uso</li>
-                        </ul>
-                    </div>
-                    <div class="pricing-cta">
-                        <p><strong>💰 Receba suas comissões todo mês!</strong></p>
-                        <a href="https://suacomprasmart.com.br/cadastro" class="btn btn-primary" style="width: 100%; margin-top: 15px;">Começar Agora</a>
-                    </div>
-                </div>
-
-                <!-- Plano LOJISTA -->
-                <div class="pricing-card featured">
-                    <div class="pricing-header">
-                        <div class="plan-icon"><i class="fas fa-building"></i></div>
-                        <h3>Lojista</h3>
-                        <div class="price">R$ 99,90<span>/mês</span></div>
-                        <div class="plan-badge">Mais Popular</div>
-                    </div>
-                    <div class="pricing-features">
-                        <ul>
-                            <li>Gestão de múltiplas filiais</li>
-                            <li>Controle de vendedores</li>
-                            <li>QR Codes ilimitados</li>
-                            <li>Relatórios em tempo real</li>
-                            <li>Sistema de comissões</li>
-                            <li>Crie suas campanhas promocionais sem complicações</li>
-                            <li>Insira sua equipe de vendas na plataforma</li>
-                            <li>Suporte prioritário</li>
-                            <li>Faturas e notas fiscais</li>
-                        </ul>
-                    </div>
-                    <div class="pricing-cta">
-                        <p><strong>🎯 Ideal para expandir, crescer vendas e receber seus clientes muiito melhor nas suas lojas físicas</strong></p>
-                        <a href="https://suacomprasmart.com.br/cadastro" class="btn btn-primary" style="width: 100%; margin-top: 15px;">Experimente Grátis</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Vantagens dos Consultores -->
-            <div class="consultor-benefits">
-                <h3>🎯 Por que ser um Consultor CompraSmart?</h3>
-                <div class="benefits-list">
-                    <div class="benefit-item">
-                        <div class="benefit-icon">💸</div>
-                        <div class="benefit-content">
-                            <h4>Receba direto na conta</h4>
-                            <p>Suas comissões são depositadas todo mês sem complicação</p>
-                        </div>
-                    </div>
-                    <div class="benefit-item">
-                        <div class="benefit-icon">🏠</div>
-                        <div class="benefit-content">
-                            <h4>Trabalhe de qualquer lugar</h4>
-                            <p>Home office total - você define seu horário e local</p>
-                        </div>
-                    </div>
-                    <div class="benefit-item">
-                        <div class="benefit-icon">📈</div>
-                        <div class="benefit-content">
-                            <h4>Crescimento ilimitado</h4>
-                            <p>Atenda quantos clientes quiser e aumente sua renda</p>
-                        </div>
-                    </div>
-                    <div class="benefit-item">
-                        <div class="benefit-icon">🆓</div>
-                        <div class="benefit-content">
-                            <h4>Zero custos</h4>
-                            <p>Plataforma 100% gratuita para consultores</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Como Funciona -->
-    <section class="how-it-works" id="como-funciona">
-        <div class="container">
-            <h2 class="section-title">Como funciona</h2>
-            <div class="steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <h3>Cadastre-se</h3>
-                        <p>Crie sua conta em menos de 2 minutos</p>
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <h3>Escolha seu perfil</h3>
-                        <p>Lojista ou Consultor</p>
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <h3>Comece a atender seus clientes</h3>
-                        <p>Tenha acesso a consultores especializados de acordo com o segmento do seu negócio</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-<!-- Seção Integração ERP -->
-<section class="erp-integration">
-    <div class="container">
-        <h2 class="section-title">Integração com Seu Sistema Existente</h2>
-        
-        <div class="erp-content">
-            <div class="erp-text">
-                <h3>📊 Em breve: Compre seu ERP Odoo para seu negócio</h3>
-                <p>Estamos desenvolvendo um ERP para sua empresa e a integração nativa com o Odoo para oferecer uma experiência ainda mais completa para lojistas.</p>
-                
-                <div class="erp-features">
-                    <div class="erp-feature">
-                        <i class="fas fa-sync-alt"></i>
-                        <div>
-                            <h4>Sincronização de Dados</h4>
-                            <p>Dados de vendas e estoque sincronizados em tempo real</p>
-                        </div>
-                    </div>
-                     
-                    <div class="erp-feature">
-                        <i class="fas fa-database"></i>
-                        <div>
-                            <h4>Gestão Unificada</h4>
-                            <p>Faça a integração do seu ERP atual com a nossa plataforma</p>
-                        </div>
-                    </div>
+                <!-- Plano Básico -->
+                <div class="pricing-card basic">
+                    <div class="plan-badge">Básico</div>
+                    <div class="plan-icon">🏪</div>
+                    <h3>Plano Básico</h3>
+                    <div class="price">R$ 99,90<span>/mês</span></div>
+                    <p class="price-note">Ideal para pequenos negócios</p>
                     
-                    <div class="erp-feature">
-                        <i class="fas fa-plug"></i>
-                        <div>
-                            <h4>Multi-ERP</h4>
-                            <p>Vincule outros sistemas ERP além do Odoo</p>
+                    <div class="plan-features">
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-check"></i></div>
+                            <div class="feature-text">
+                                <span class="feature-limit">1 Loja + 2 Filiais</span>
+                                <div class="feature-note">Cadastro de estabelecimentos</div>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-check"></i></div>
+                            <div class="feature-text">
+                                <span class="feature-limit">Até 5 Vendedores</span>
+                                <div class="feature-note">Equipe comercial</div>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-check"></i></div>
+                            <div class="feature-text">
+                                <span class="feature-limit">3 Consultores</span>
+                                <div class="feature-note">Acesso à plataforma</div>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-check"></i></div>
+                            <div class="feature-text">Relatórios Básicos</div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-check"></i></div>
+                            <div class="feature-text">5 Campanhas/Mês</div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-check"></i></div>
+                            <div class="feature-text">Suporte por Email</div>
                         </div>
                     </div>
-                </div>
-                
-            
-            <div class="erp-visual">
-                <!-- Imagem ilustrativa da integração -->
-                <div style="width: 100%; height: 300px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; position: relative;">
-                    <div style="text-align: center;">
-                        <i class="fas fa-cloud" style="font-size: 4rem; margin-bottom: 1rem;"></i>
-                        <h3 style="margin-bottom: 0.5rem;">CompraSmart + Odoo</h3>
-                        <p>Integração em Desenvolvimento</p>
+
+                    <div class="limitations">
+                        <h4>⚠️ Limitações do Plano</h4>
+                        <div class="limitation-item">
+                            <i class="fas fa-info-circle"></i>
+                            Máximo de 100 produtos cadastrados
+                        </div>
+                        <div class="limitation-item">
+                            <i class="fas fa-info-circle"></i>
+                            Relatórios básicos apenas
+                        </div>
+                        <div class="limitation-item">
+                            <i class="fas fa-info-circle"></i>
+                            Sem integração com ERP
+                        </div>
                     </div>
+
+                    <button class="cta-button" onclick="alert('Redirecionando para assinatura do Plano Básico')">
+                        🚀 Assinar Plano Básico
+                    </button>
+                </div>
+
+                <!-- Plano Premium -->
+                <div class="pricing-card premium">
+                    <div class="plan-badge">Mais Popular</div>
+                    <div class="plan-icon">🚀</div>
+                    <h3>Plano Premium</h3>
+                    <div class="price">R$ 299,90<span>/mês</span></div>
+                    <p class="price-note">Perfeito para negócios em crescimento</p>
+                    
+                    <div class="plan-features">
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-check"></i></div>
+                            <div class="feature-text">
+                                <span class="feature-limit">Lojas Ilimitadas</span>
+                                <div class="feature-note">Cadastro completo</div>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-check"></i></div>
+                            <div class="feature-text">
+                                <span class="feature-limit">Até 20 Vendedores</span>
+                                <div class="feature-note">Equipe expandida</div>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-check"></i></div>
+                            <div class="feature-text">
+                                <span class="feature-limit">10 Consultores</span>
+                                <div class="feature-note">Acesso ampliado</div>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-check"></i></div>
+                            <div class="feature-text">Relatórios Avançados</div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-check"></i></div>
+                            <div class="feature-text">Campanhas Ilimitadas</div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-check"></i></div>
+                            <div class="feature-text">Suporte Prioritário</div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-check"></i></div>
+                            <div class="feature-text">API de Integração</div>
+                        </div>
+                    </div>
+
+                    <button class="cta-button" onclick="alert('Redirecionando para assinatura do Plano Premium')">
+                        🎯 Escolher Plano Premium
+                    </button>
+                </div>
+
+                <!-- Plano Empresarial -->
+                <div class="pricing-card enterprise">
+                    <div class="plan-badge">Empresarial</div>
+                    <div class="plan-icon">🏢</div>
+                    <h3>Plano Empresarial</h3>
+                    <div class="price">R$ 599,90<span>/mês</span></div>
+                    <p class="price-note">Solução completa para grandes empresas</p>
+                    
+                    <div class="plan-features">
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-check"></i></div>
+                            <div class="feature-text">
+                                <span class="feature-limit">Lojas Ilimitadas</span>
+                                <div class="feature-note">Multi-filiais</div>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-check"></i></div>
+                            <div class="feature-text">
+                                <span class="feature-limit">Vendedores Ilimitados</span>
+                                <div class="feature-note">Equipe sem restrições</div>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-check"></i></div>
+                            <div class="feature-text">
+                                <span class="feature-limit">Consultores Ilimitados</span>
+                                <div class="feature-note">Acesso total</div>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-check"></i></div>
+                            <div class="feature-text">Dashboard Personalizado</div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-check"></i></div>
+                            <div class="feature-text">Analytics em Tempo Real</div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-check"></i></div>
+                            <div class="feature-text">Suporte Dedicado 24/7</div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-check"></i></div>
+                            <div class="feature-text">Integração Completa</div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-check"></i></div>
+                            <div class="feature-text">ERP Odoo Integrado</div>
+                        </div>
+                    </div>
+
+                    <button class="cta-button" onclick="alert('Redirecionando para assinatura do Plano Empresarial')">
+                        💼 Contratar Plano Empresarial
+                    </button>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
-    <!-- CTA Final -->
-    <section class="final-cta">
-        <div class="container">
-            <h2>Pronto para revolucionar suas vendas?</h2>
-            <p>Junte-se a centenas de Clientes, Consultores e Lojistas que já estão usando o CompraSmart</p>
-            
-            <div class="hero-buttons" style="justify-content: center;">
-                <a href="https://suacomprasmart.com.br/cadastro" class="btn btn-accent" style="padding: 20px 40px; font-size: 1.3rem;">
-                    <i class="fas fa-rocket"></i> Começar Agora
-                </a>
-                <a href="#planos" class="btn btn-outline" style="padding: 20px 40px; font-size: 1.3rem; background: rgba(255,255,255,0.1); color: white; border-color: white;">Ver Planos</a>
+
+            <!-- Observações -->
+            <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: #f8f9fa; border-radius: 10px;">
+                <h3 style="color: var(--secondary); margin-bottom: 1rem;">🔒 Condicionantes por Plano</h3>
+                <p style="color: var(--gray); max-width: 800px; margin: 0 auto;">
+                    <strong>Cada plano tem suas próprias limitações e recursos.</strong> O sistema automaticamente aplica as restrições 
+                    de acordo com o plano contratado. Você pode fazer upgrade a qualquer momento conforme seu negócio cresce!
+                </p>
             </div>
         </div>
     </section>
-
-    <!-- Footer -->
-    <footer id="contato">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>CompraSmart</h3>
-                    <p>Revolucionando o modo como Clientes, Consultores e Lojistas interagem.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-whatsapp"></i></a>
-                    </div>
-                </div>
-                <div class="footer-column">
-                    <h3>Links Rápidos</h3>
-                    <ul class="footer-links">
-                        <li><a href="#home">Início</a></li>
-                        <li><a href="#beneficios">Benefícios</a></li>
-                        <li><a href="#planos">Planos</a></li>
-                        <li><a href="#como-funciona">Como Funciona</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Suporte</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Central de Ajuda</a></li>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Política de Privacidade</a></li>
-                        <li><a href="#">Termos de Uso</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Contato</h3>
-                    <ul class="footer-links">
-                        <li><i class="fas fa-envelope"></i> contato@comprasmart.app</li>
-                        <li><i class="fas fa-phone"></i> (11) 99999-9999</li>
-                        <li><i class="fas fa-map-marker-alt"></i> São Paulo, Brasil</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="copyright">
-                &copy; 2024 CompraSmart. Todos os direitos reservados.
-            </div>
-        </div>
-    </footer>
 
     <script>
-        // Menu mobile toggle
-        document.querySelector('.mobile-menu').addEventListener('click', function() {
-            const navLinks = document.querySelector('.nav-links');
-            const authButtons = document.querySelector('.auth-buttons');
-            
-            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-            authButtons.style.display = authButtons.style.display === 'flex' ? 'none' : 'flex';
-            
-            if (navLinks.style.display === 'flex') {
-                navLinks.style.flexDirection = 'column';
-                navLinks.style.position = 'absolute';
-                navLinks.style.top = '100%';
-                navLinks.style.left = '0';
-                navLinks.style.right = '0';
-                navLinks.style.background = 'white';
-                navLinks.style.padding = '20px';
-                navLinks.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
-                
-                authButtons.style.flexDirection = 'column';
-                authButtons.style.position = 'absolute';
-                authButtons.style.top = 'calc(100% + 180px)';
-                authButtons.style.left = '0';
-                authButtons.style.right = '0';
-                authButtons.style.background = 'white';
-                authButtons.style.padding = '20px';
-                authButtons.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
-            }
-        });
+        // Simulação de redirecionamento para checkout
+        function redirectToCheckout(plano) {
+            alert(`Redirecionando para o checkout seguro do ${plano}...\n\nEm produção, isso abriria o Stripe Checkout.`);
+            // window.location.href = `/checkout?plano=${plano}`;
+        }
 
-        // Smooth scroll para links internos
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+        // Atribuir eventos aos botões
+        document.querySelectorAll('.cta-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const card = this.closest('.pricing-card');
+                const planName = card.querySelector('h3').textContent;
+                redirectToCheckout(planName);
             });
-        });
-
-        // Animação de entrada dos elementos
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observar elementos para animação
-        document.querySelectorAll('.benefit-card, .step, .stat-item, .pricing-card').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(el);
         });
     </script>
 </body>
